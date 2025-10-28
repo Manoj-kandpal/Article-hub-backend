@@ -5,7 +5,7 @@
 
 A web-application for article management
 
-## Local setup setup
+## Local setup
 
 ### Required
 
@@ -25,3 +25,26 @@ A web-application for article management
 - docker
 - local
 - default (add your own configuration)
+
+### Running Docker compose file:
+### Prerequisites
+
+- [Rancher Desktop](https://rancherdesktop.io/) or Docker installed
+- `docker` CLI available in your terminal
+
+### Steps
+
+1. Open a terminal and navigate to the project directory containing `docker-compose.yml`.
+
+2. Start the PostgreSQL container:
+
+```bash
+docker compose up -d
+```
+
+### Running Article Hub application:
+
+#### Locally:
+1. Run the docker-compose file
+2. While running the application, set profile to one of the available options, i.e. docker. Add VM options:
+- -Duser.timezone=Asia/Kolkata (if you get timezone error while running the application)
