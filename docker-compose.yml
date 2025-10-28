@@ -3,15 +3,26 @@ version: '3.1'
 services:
   db:
     container_name: postgres_db
-    image: postgres
+    image: postgres:18
     environment:
       POSTGRES_DB: articlehub
       POSTGRES_PASSWORD: 123456
       POSTGRES_USER: docker
+      TZ: Asia/Kolkata
     ports:
       - "5432:5432"
     volumes:
-      - article-db-data:/var/lib/postgresql
+      - article-db-data:/var/lib/postgresql/data
+
+  app:
+    container_name: article_hub_app
+    build: .
+    environment:
+      JAVA_OPTS: "-Duser.timezone=Asia/Kolkata -Dspring.profiles.active=docker"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
 
 volumes:
   article-db-data:

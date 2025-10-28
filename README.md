@@ -22,8 +22,8 @@ A web-application for article management
 
 ### PROFILES:
 
-- docker
-- local
+- docker (use when docker image is built)
+- local (use locally)
 - default (add your own configuration)
 
 ### Running Docker compose file:
@@ -48,3 +48,9 @@ docker compose up -d
 1. Run the docker-compose file
 2. While running the application, set profile to one of the available options, i.e. docker. Add VM options:
 - -Duser.timezone=Asia/Kolkata (if you get timezone error while running the application)
+
+### To build docker file:
+
+```bash
+docker build -t article-hub .
+```
